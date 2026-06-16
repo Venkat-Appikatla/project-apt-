@@ -1,13 +1,12 @@
 fastapi
-uvicorn
+uvicorn[standard]
 torch
 torchvision
 numpy
-opencv-python
+opencv-python-headless
 python-multipart
 pydantic
 pillow
-yolox
 loguru
 tqdm
 thop
@@ -15,6 +14,7 @@ tabulate
 psutil
 pycocotools
 onnx
-onnx-simplifier
+onnxsim
 rich
 tensorboard
+git+https://github.com/Megvii-BaseDetection/YOLOX.git
