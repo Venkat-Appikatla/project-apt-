@@ -1,0 +1,13 @@
+idly
+dosa
+rice
+boiled_eggs
+chuteny
+dal
+curd
+chapathi
+kakarakaya fry
+egg curry
+pulihora
+sambar
+unknown

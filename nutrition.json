@@ -1,0 +1,198 @@
+{
+"idly": {
+"macronutrients": {
+"calories_kcal": 58,
+"protein_g": 2.0,
+"fat_g": 0.4,
+"carbohydrates_g": 12.3,
+"fiber_g": 0.8
+},
+"micronutrients": {
+"calcium_mg": 10,
+"iron_mg": 0.3,
+"magnesium_mg": 12,
+"potassium_mg": 35
+}
+},
+
+"dosa": {
+"macronutrients": {
+"calories_kcal": 168,
+"protein_g": 4.5,
+"fat_g": 3.7,
+"carbohydrates_g": 29.0,
+"fiber_g": 1.5
+},
+"micronutrients": {
+"calcium_mg": 14,
+"iron_mg": 1.0,
+"magnesium_mg": 25,
+"potassium_mg": 80
+}
+},
+
+"rice": {
+"macronutrients": {
+"calories_kcal": 130,
+"protein_g": 2.7,
+"fat_g": 0.3,
+"carbohydrates_g": 28.0,
+"fiber_g": 0.4
+},
+"micronutrients": {
+"calcium_mg": 10,
+"iron_mg": 0.2,
+"magnesium_mg": 12,
+"potassium_mg": 35
+}
+},
+
+"boiled_eggs": {
+"macronutrients": {
+"calories_kcal": 155,
+"protein_g": 13.0,
+"fat_g": 11.0,
+"carbohydrates_g": 1.1,
+"fiber_g": 0.0
+},
+"micronutrients": {
+"calcium_mg": 50,
+"iron_mg": 1.2,
+"vitamin_b12_mcg": 1.1,
+"zinc_mg": 1.3
+}
+},
+
+"chuteny": {
+"macronutrients": {
+"calories_kcal": 90,
+"protein_g": 2.0,
+"fat_g": 5.0,
+"carbohydrates_g": 10.0,
+"fiber_g": 2.0
+},
+"micronutrients": {
+"calcium_mg": 25,
+"iron_mg": 0.7,
+"potassium_mg": 120,
+"vitamin_c_mg": 4
+}
+},
+
+"dal": {
+"macronutrients": {
+"calories_kcal": 116,
+"protein_g": 9.0,
+"fat_g": 0.4,
+"carbohydrates_g": 20.0,
+"fiber_g": 8.0
+},
+"micronutrients": {
+"iron_mg": 3.3,
+"folate_mcg": 180,
+"magnesium_mg": 36,
+"potassium_mg": 370
+}
+},
+
+"curd": {
+"macronutrients": {
+"calories_kcal": 61,
+"protein_g": 3.5,
+"fat_g": 3.3,
+"carbohydrates_g": 4.7,
+"fiber_g": 0.0
+},
+"micronutrients": {
+"calcium_mg": 121,
+"phosphorus_mg": 95,
+"potassium_mg": 155,
+"vitamin_b12_mcg": 0.5
+}
+},
+
+"chapathi": {
+"macronutrients": {
+"calories_kcal": 297,
+"protein_g": 9.0,
+"fat_g": 7.0,
+"carbohydrates_g": 55.0,
+"fiber_g": 8.0
+},
+"micronutrients": {
+"iron_mg": 2.7,
+"magnesium_mg": 90,
+"potassium_mg": 250,
+"zinc_mg": 1.8
+}
+},
+
+"kakarakaya fry": {
+"macronutrients": {
+"calories_kcal": 110,
+"protein_g": 2.5,
+"fat_g": 6.0,
+"carbohydrates_g": 13.0,
+"fiber_g": 3.5
+},
+"micronutrients": {
+"vitamin_c_mg": 40,
+"iron_mg": 1.0,
+"potassium_mg": 300,
+"folate_mcg": 60
+}
+},
+
+"egg curry": {
+"macronutrients": {
+"calories_kcal": 180,
+"protein_g": 13.0,
+"fat_g": 13.0,
+"carbohydrates_g": 4.0,
+"fiber_g": 1.0
+},
+"micronutrients": {
+"vitamin_b12_mcg": 1.2,
+"iron_mg": 1.8,
+"zinc_mg": 1.5,
+"selenium_mcg": 22
+}
+},
+
+"pulihora": {
+"macronutrients": {
+"calories_kcal": 180,
+"protein_g": 3.0,
+"fat_g": 5.0,
+"carbohydrates_g": 31.0,
+"fiber_g": 1.5
+},
+"micronutrients": {
+"iron_mg": 0.8,
+"magnesium_mg": 18,
+"potassium_mg": 90,
+"vitamin_c_mg": 3
+}
+},
+
+"sambar": {
+"macronutrients": {
+"calories_kcal": 75,
+"protein_g": 4.0,
+"fat_g": 2.0,
+"carbohydrates_g": 10.0,
+"fiber_g": 3.0
+},
+"micronutrients": {
+"iron_mg": 1.5,
+"calcium_mg": 40,
+"potassium_mg": 200,
+"vitamin_c_mg": 10
+}
+},
+
+"unknown": {
+"macronutrients": {},
+"micronutrients": {}
+}
+}
