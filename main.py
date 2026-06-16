@@ -1,168 +1,10 @@
-# from fastapi import FastAPI, UploadFile, File
-# import numpy as np
-# import cv2
-# import torch
-
-# from yolox.exp import get_exp
-# from yolox.utils import postprocess
-# from yolox.data.data_augment import ValTransform
-
-# app = FastAPI(
-#     title="Food Detection API"
-# )
-
-# # ---------------- CONFIG ----------------
-
-# MODEL_PATH = r"C:\Users\APTIN300117.APONLINEODC\Desktop\food_api\models\best_ckpt_fp16.pth"
-
-# CONF_THRESH = 0.05
-# IOU_THRESH = 0.45
-# INPUT_SIZE = (640, 640)
-
-# NUM_CLASSES = 13
-
-# CLASS_NAMES = [
-#     "idly",
-#     "dosa",
-#     "rice",
-#     "boiled_eggs",
-#     "chuteny",
-#     "dal",
-#     "curd",
-#     "chapathi",
-#     "kakarakaya fry",
-#     "egg curry",
-#     "pulihora",
-#     "sambar",
-#     "unknown"
-# ]
-
-# DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-
-# # ---------------- LOAD MODEL ----------------
-
-# exp = get_exp(
-#     r"C:\Users\APTIN300117.APONLINEODC\Desktop\food_api\exps\food_yolox_l.py",
-#     None
-# )
-
-# exp.num_classes = NUM_CLASSES
-# exp.test_conf = CONF_THRESH
-# exp.nmsthre = IOU_THRESH
-# exp.test_size = INPUT_SIZE
-
-# model = exp.get_model()
-
-# ckpt = torch.load(
-#     MODEL_PATH,
-#     map_location=DEVICE,
-#     weights_only=False
-# )
-
-# state_dict = ckpt["model"] if "model" in ckpt else ckpt
-
-# model.load_state_dict(state_dict)
-
-# model.to(DEVICE)
-# model.eval()
-
-# preproc = ValTransform(legacy=False)
-
-# # ---------------- HELPERS ----------------
-
-# def preprocess(img):
-#     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-#     img_t, _ = preproc(img_rgb, None, INPUT_SIZE)
-
-#     return torch.from_numpy(img_t).unsqueeze(0).float().to(DEVICE)
-
-
-# def run_inference(img):
-
-#     h, w = img.shape[:2]
-
-#     tensor = preprocess(img)
-
-#     with torch.no_grad():
-
-#         outputs = model(tensor)
-
-#         outputs = postprocess(
-#             outputs,
-#             num_classes=NUM_CLASSES,
-#             conf_thre=CONF_THRESH,
-#             nms_thre=IOU_THRESH
-#         )
-
-#     if outputs[0] is None:
-#         return []
-
-#     scale = min(INPUT_SIZE[0] / h, INPUT_SIZE[1] / w)
-
-#     detections = []
-
-#     for det in outputs[0].cpu().numpy():
-
-#         x1, y1, x2, y2, obj_conf, cls_conf, cls_id = det
-
-#         detections.append({
-#             "class": CLASS_NAMES[int(cls_id)],
-#             "confidence": round(float(obj_conf * cls_conf), 4),
-#             "bbox": [
-#                 round(float(x1) / scale, 2),
-#                 round(float(y1) / scale, 2),
-#                 round(float(x2) / scale, 2),
-#                 round(float(y2) / scale, 2)
-#             ]
-#         })
-
-#     return detections
-
-
-# # ---------------- ROUTES ----------------
-
-# @app.get("/")
-# def home():
-#     return {"message": "Food API Running"}
-
-
-# @app.get("/health")
-# def health():
-#     return {
-#         "status": "healthy",
-#         "device": DEVICE
-#     }
-
-
-# @app.post("/predict")
-# async def predict(file: UploadFile = File(...)):
-
-#     image_bytes = await file.read()
-
-#     nparr = np.frombuffer(image_bytes, np.uint8)
-
-#     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-
-#     if img is None:
-#         return {"error": "Invalid image"}
-
-#     detections = run_inference(img)
-
-#     return {
-#         "filename": file.filename,
-#         "image_shape": list(img.shape),
-#         "total_detections": len(detections),
-#         "detections": detections
-#     }
-# _____________________________________
-
-
 from fastapi import FastAPI, UploadFile, File
 import numpy as np
 import cv2
 import torch
 import json
+import os
+import gdown
 
 from yolox.exp import get_exp
 from yolox.utils import postprocess
@@ -213,8 +55,20 @@ exp.test_size   = INPUT_SIZE
 
 model = exp.get_model()
 
+# Download model from Google Drive if missing
+if not os.path.exists(MODEL_PATH):
+    os.makedirs("models", exist_ok=True)
+
+    gdown.download(
+        id="14tP1qDRKyJ0-9PWITxFQJ1zzHXFobS7g",
+        output=MODEL_PATH,
+        quiet=False
+    )
+
 ckpt = torch.load(MODEL_PATH, map_location=DEVICE, weights_only=False)
+
 state_dict = ckpt["model"] if "model" in ckpt else ckpt
+
 model.load_state_dict(state_dict)
 
 model.to(DEVICE)
