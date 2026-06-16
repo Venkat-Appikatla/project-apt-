@@ -1,8 +1,8 @@
 fastapi
 uvicorn[standard]
 torch
-gdown
 torchvision
+gdown
 numpy
 opencv-python-headless
 python-multipart
@@ -18,4 +18,3 @@ onnx
 onnxsim
 rich
 tensorboard
-git+https://github.com/Megvii-BaseDetection/YOLOX.git
