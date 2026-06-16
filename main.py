@@ -65,6 +65,10 @@ if not os.path.exists(MODEL_PATH):
         quiet=False
     )
 
+# Verify model exists
+if not os.path.exists(MODEL_PATH):
+    raise RuntimeError("Model download failed")
+
 ckpt = torch.load(MODEL_PATH, map_location=DEVICE, weights_only=False)
 
 state_dict = ckpt["model"] if "model" in ckpt else ckpt
