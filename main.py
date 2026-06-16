@@ -15,7 +15,7 @@ app = FastAPI(title="Food Detection API")
 # ---------------- CONFIG ----------------
 
 MODEL_PATH = "models/best_ckpt_fp16.pth"
-EXP_PATH   = "exps/food_yolox_l.py"
+EXP_PATH   = "food_yolox_l.py"
 
 CONF_THRESH  = 0.25        # raised from 0.05 → reduces false positives
 IOU_THRESH   = 0.45
@@ -80,7 +80,7 @@ if USE_FP16 and DEVICE == "cuda":
 
 preproc = ValTransform(legacy=False)
 
-with open("data/nutrition.json", "r", encoding="utf-8") as f:
+with open("nutrition.json", "r", encoding="utf-8") as f:
     NUTRITION_DB = json.load(f)
 
 print("[INFO] Nutrition database loaded")
