@@ -60,10 +60,10 @@ if not os.path.exists(MODEL_PATH):
     os.makedirs("models", exist_ok=True)
 
     gdown.download(
-        id="14tP1qDRKyJ0-9PWITxFQJ1zzHXFobS7g",
-        output=MODEL_PATH,
-        quiet=False
-    )
+    id="1dNDsB94ooN95E2r-Z7gT5O0VpDKB4-8F",
+    output=MODEL_PATH,
+    quiet=False
+)
 
 # Verify model exists
 if not os.path.exists(MODEL_PATH):
